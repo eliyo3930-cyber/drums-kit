@@ -1,0 +1,95 @@
+:root {
+  --stage: #1b1f3a;
+  --stage-deep: #12152b;
+  --brass: #e0b252;
+  --skin: #f3ecd9;
+  --lacquer: #c2412d;
+  --text: #f3ecd9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.5rem 1rem 1.5rem;
+  background: radial-gradient(circle at 50% 30%, var(--stage), var(--stage-deep) 75%);
+  color: var(--text);
+  font-family: "Work Sans", system-ui, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Bowlby One", Impact, sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  letter-spacing: 0.02em;
+  color: var(--brass);
+}
+
+header p { margin: 0.5rem 0 0; opacity: 0.8; }
+
+.kit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 980px;
+}
+
+.drum {
+  --size: 130px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  border: 8px solid #8d93a8;
+  background: var(--skin);
+  color: var(--stage-deep);
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0.08), 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.drum:focus-visible { outline: 3px solid var(--brass); outline-offset: 4px; }
+
+.letter { font-family: "Bowlby One", Impact, sans-serif; font-size: 2.4rem; line-height: 1; }
+.name { font-weight: 700; font-size: 0.85rem; }
+
+.tom:nth-child(odd) { --size: 120px; }
+.tom:nth-child(even) { --size: 140px; }
+.snare { --size: 150px; border-color: #c9cdd9; }
+.kick { --size: 190px; background: var(--lacquer); color: var(--skin); border-color: #5b1a12; }
+.crash {
+  --size: 160px;
+  background: radial-gradient(circle, #f5d98e 0 18%, var(--brass) 19% 100%);
+  border: 4px solid #b8892c;
+}
+
+.pressed {
+  transform: scale(0.92);
+  box-shadow: inset 0 0 0 4px rgba(0, 0, 0, 0.08), 0 0 28px 6px var(--brass);
+}
+
+footer { font-size: 0.85rem; opacity: 0.6; }
+
+@media (max-width: 520px) {
+  .drum { --size: 100px !important; }
+  .letter { font-size: 1.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drum { transition: none; }
+}
